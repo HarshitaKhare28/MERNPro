@@ -1,0 +1,23 @@
+.container{
+    max-width: 120rem;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 3.0rem 2.0rem;
+    display: flex;
+    justify-content: space-between;
+}
+.logo-brand a {
+    font-size: 2rem; /* Adjust the size as needed */
+    font-weight: bold; /* Optional: Make it bold */
+}
+ul{
+    display: flex;
+    gap: 3.2rem;
+}
+li{
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+  }

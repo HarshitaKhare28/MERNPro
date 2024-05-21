@@ -1,0 +1,125 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Urbanist, system-ui, Avenir, Helvetica, sans-serif;
+    color-scheme: dark light;
+}
+
+:root {
+    --bg-color: #f4f3ff;
+    --btn-color: #646cff;
+    --dark-color: #242424;
+    --helper-color: #99b9ff;
+}
+
+.main-heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem; /* Add some space below the heading */
+}
+
+.main-heading h1 {
+    font-size: 5.0rem;
+    line-height: 1.1;
+    margin: 0; 
+}
+
+.card-details h4 {
+    color: #fcfafa;
+    font-size: 4rem;;
+}
+.card-details p,
+.card-details li,
+.card-details label,
+.card-details input,
+.card-details textarea {
+    font-size: 1.4rem;
+    color: whitesmoke !important;
+    line-height: 1.56;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.06rem;
+}
+
+
+a {
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color: var(--btn-color);
+}
+
+.container {
+    max-width: 130rem;
+    padding: 4rem 2.4rem;
+    margin: 0 auto;
+}
+
+/* Grid layout for services */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; /* Adjust the gap between cards */
+}
+
+.card {
+    background-color: transparent; /* Background color same as application */
+    border-radius: 1rem;
+    color: #fff;
+    border: 0.3rem solid #fff; /* White border */
+    box-sizing: border-box;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 0.5rem; /* Padding inside the card */
+}
+
+.card-image {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    height: 160px; /* Reduced height */
+    overflow: hidden;
+}
+
+.card-image img {
+    width: auto;
+    height: 100%; /* Fill the height of the container */
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+
+.card-details {
+    padding: 1.6rem;
+}
+
+.card-details h4 {
+    margin-top: 1.6rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem; /* Reduced font size */
+    text-align: center; /* Center the text */
+}
+
+.card-details p {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    color: var(--dark-color);
+    text-align: center; /* Center the text */
+}
+
+.card-details .grid-two-cols {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.8rem;
+    justify-content: center; /* Center the grid */
+}
+
+.card-details .grid-two-cols p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    /* For smaller screens, change to a single column layout */
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,51 @@
+#error-page {
+    background-color: var(--dark-color);
+    color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container{
+    max-width: 50rem;
+    padding: 4rem 2rem;
+}
+
+.header{
+    margin-top: -10%;
+    font-size: 10rem;
+    margin-bottom: 1rem;
+}
+
+p{
+    padding: 2%;
+}
+
+h4{
+    font-size: x-large;
+}
+
+.btns {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.btns a {
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    background-color: var(--btn-color);
+    color: white;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btns a:hover{
+    background-color: var(--helper-color);
+    color: var(--dark-color);
+}
