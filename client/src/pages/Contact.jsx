@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../store/auth";
+import { toast} from 'react-toastify';
 import "./Contact.css";
 
 export const Contact = () => {
@@ -45,10 +46,11 @@ const handleSubmit = async (e) => {
         setContact({username: "", email: "", message: "",});
         const data = await response.json();
         console.log("data",data);
-        alert("message sent");
+        toast.success("Message sent");
       }
     } catch (error) {
-      console.log(error);
+      alert("An error occurred. Please try again later.");
+    console.log(error);
     }
 };
 

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../store/auth";
+import { toast} from 'react-toastify';
 import "./Login.css";
 
 export const Login = () => {
@@ -33,19 +34,21 @@ export const Login = () => {
         },
         body: JSON.stringify(user),
       });
-
+      const res_data = await response.json(); 
+      console.log("response from server", res_data.extraDetails);
       if (response.ok) {
-        const res_data = await response.json();  
-        console.log("response from server", res_data);
         storeTokenInLS(res_data.token);
-        alert("login successful");
+        toast.success("Login Successful");
         setUser({ email: "", password: "" });
         navigate("/");
       } else {
-        const errorData = await response.json();  
-        console.error("Invalid credentials", errorData.message);
+        // const errorData = await response.json();  
+        // console.error("Invalid credentials", errorData.message);
+        alert(res_data.extraDetails ? res_data.extraDetails:  res_data.message);
+        
       }
     } catch (error) {
+      alert("An error occurred. Please try again later.");
       console.log(error);
     }
   };
