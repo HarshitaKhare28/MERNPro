@@ -11,7 +11,7 @@ export const Register = () => {
     phone: "",
     password: "",
   });
-const {storeTokenInLS} = useAuth();
+const {storeTokenInLS,API} = useAuth();
   const handleInput = (e) => {
     console.log(e);
     let name = e.target.name;
@@ -28,7 +28,7 @@ const {storeTokenInLS} = useAuth();
     e.preventDefault();
     console.log(user);
     try{
-    const response = await fetch(`http://localhost:5000/api/auth/register`,{
+    const response = await fetch(`${API}/api/auth/register`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json",

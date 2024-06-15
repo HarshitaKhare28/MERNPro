@@ -7,8 +7,10 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState("");
-  const [services,setServices] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [services,setServices] = useState([]);
   const authorizationToken =  `Bearer ${token}`;
+  const API = import.meta.env.VITE_APP_URL;
 
   const storeTokenInLS = (serverToken) => {
     localStorage.setItem("token", serverToken);
@@ -28,7 +30,8 @@ export const AuthProvider = ({ children }) => {
   const userAuthentication = async () => {
     if (!token) return;  // Do not fetch if no token
     try {
-      const response = await fetch("http://localhost:5000/api/auth/user", {
+      setIsLoading(true);
+      const response = await fetch(`${API}/api/auth/user`, {
         method: "GET",
         headers: {
           Authorization: authorizationToken,
@@ -38,7 +41,9 @@ export const AuthProvider = ({ children }) => {
         const data = await response.json();
         console.log("user data", data.userData);
         setUser(data.userData);
+        setIsLoading(false);
       } else {
+        setIsLoading(false);
         console.error("Error fetching user data");
       }
     } catch (error) {
@@ -49,7 +54,7 @@ export const AuthProvider = ({ children }) => {
   //to get services data from db
   const getServices = async()=>{
     try {
-      const response = await fetch("http://localhost:5000/api/data/services",{
+      const response = await fetch(`${API}/api/data/services`,{
         method:"GET",
       })
       if(response.ok){
@@ -68,7 +73,7 @@ export const AuthProvider = ({ children }) => {
   }, [token]);  // Depend on token
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user ,services,authorizationToken}}>
+    <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user ,services,authorizationToken, isLoading,API}}>
       {children}
     </AuthContext.Provider>
   );

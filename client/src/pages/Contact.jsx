@@ -4,6 +4,7 @@ import { toast} from 'react-toastify';
 import "./Contact.css";
 
 export const Contact = () => {
+  const {API} = useAuth();
   const [contact, setContact] = useState({
       username: "",
       email: "",
@@ -34,7 +35,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     // alert(JSON.stringify(contact));
     try {
-      const response = await fetch(`http://localhost:5000/api/form/contact`,{
+      const response = await fetch(`${API}/api/form/contact`,{
         method: "POST",
         headers:{
           "Content-Type":"application/json",
