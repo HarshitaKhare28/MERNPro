@@ -1,4 +1,4 @@
-# MernPro
+# MERNPro
 MERNPro is a full-stack web application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This project includes features such as user registration, login, contact management, and an admin panel for user and contact management.
 ## Features
 - User Registration and Login: Users can register and log in to their accounts.
